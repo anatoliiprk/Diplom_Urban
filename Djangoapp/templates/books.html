@@ -1,0 +1,25 @@
+{% extends "menu.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block menu %}{{ block.super }}{% endblock %}
+
+{% block pagename %}<h1>{{ text }}</h1>{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for book in books %}
+        <li>
+            <strong>"{{ book.title }}"</strong> Жанр: {{i.genre}}. Автор: {{ book.author }}. Стоимость: {{ book.cost }} руб.
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'add_to_basket' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Купить</button>
+                </form>
+            {% else %}
+            <p>Вы не авторизованы. Пожалуйста, <a href="{% url 'login' %}">войдите</a> в аккаунт или <a href="{% url 'sign-in' %}">зарегистрируйтесь</a>.</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

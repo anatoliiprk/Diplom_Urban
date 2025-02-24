@@ -1,0 +1,18 @@
+{% extends 'menu.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block menu %}{{ block.super }}{% endblock %}
+
+{% block pagename %}<h1>Вход</h1>{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label>Введите логин:</label><br>
+    <input type="text" name="username" required><br>
+    <label>Введите пароль:</label><br>
+    <input type="password" name="password" required><br><br>
+    <button type="submit">Войти</button>
+</form>
+{% endblock %}

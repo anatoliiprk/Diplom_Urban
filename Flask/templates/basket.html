@@ -1,0 +1,22 @@
+{% extends "menu.html" %}
+
+{% block title %}Корзина{% endblock %}
+
+{% block content %}
+<h1>Корзина</h1>
+{% if current_user.is_authenticated %}
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }} - {{ book.cost }} руб.</li>
+                <a href="{{ url_for('delete_from_basket', book_id=book.id) }}">Убрать</a>
+            {% endfor %}
+        </ul>
+        <p>Итого: {{ total_cost }} руб.</p>
+    {% else %}
+        <p>Ваша корзина пуста.</p>
+    {% endif %}
+{% else %}
+    <p>Пожалуйста, <a href="{{ url_for('login') }}">войдите</a>, чтобы увидеть содержимое корзины.</p>
+{% endif %}
+{% endblock %}

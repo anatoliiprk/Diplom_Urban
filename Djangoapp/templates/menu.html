@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <link rel = 'stylesheet' type="text/css" href='{% static "style.css"%}'>
+</head>
+<body>
+    {% block menu %}
+    <nav>
+        <a href="{% url 'main' %}">Главная</a>
+        <a href="{% url 'catalog' %}">Каталог</a>
+        <a href="{% url 'basket' %}">Корзина</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Выйти</a>
+            <p>Добро пожаловать, {{ request.user.username }}!</p>
+        {% else %}
+            <a href="{% url 'sign-in' %}">Регистрация</a>
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    </nav>
+    {% endblock %}
+
+    <header>
+        {% block pagename %}
+        <h1>{{ text }}</h1>
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
