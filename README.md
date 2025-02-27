@@ -374,11 +374,41 @@ Flask является чем-то средним между Django и FastAPI. 
 
 # **Приложение 1. Пример файловой структуры проекта** 
 
-Diplom 
+DiplomUrban
 
-|  Django 
+| .venv
 
-|  |  Django 
+|  Djangoapp 
+
+|  |  bookstore
+
+|  |  |  migrations
+
+|  |  |  |  0001_initial.py
+
+|  |  |  |  __init__.py
+
+|  |  |  __init__.py
+
+|  |  |  admin.py
+
+|  |  |  apps.py
+
+|  |  |  forms.py
+
+|  |  |  models.py
+
+|  |  |  tests.py
+
+|  |  |  views.py
+
+|  |  static
+
+|  |  |  css
+
+|  |  |  |  style
+
+|  |  Djangoapp
 
 |  |  |  __init__.py 
 
@@ -390,41 +420,19 @@ Diplom
 
 |  |  |  wsgi.py 
 
-|  | templates 
+|  |  templates 
 
-|  |  | base.html 
+|  |  |  basket.html 
 
-|  |  | cart.html 
+|  |  |  books.html 
 
-|  |  | home.html
+|  |  |  login.html
 
-|  |  | login.html 
+|  |  |  main.html 
 
-|  |  | register.html 
+|  |  |  menu.html 
 
-|  |  | shop.html 
-
-|  |  shop
-
-|  |  |  migrations 
-
-|  |  |  |  0001_initial.py
-
-|  |  |  |  __init__.py 
-
-|  |  |  __init__.py 
-
-|  |  |  admin.py 
-
-|  |  |  apps.py 
-
-|  |  | forms.py
-
-|  |  |  models.py 
-
-|  |  |  tests.py 
-
-|  |  |  views.py 
+|  |  |  sign_in.html 
 
 |  |  db.sqlite3 
 
@@ -432,6 +440,18 @@ Diplom
 
 ----
 |  FastAPI 
+
+|  |  migrations
+
+|  |  |  versions
+
+|  |  |  |  069b0dc85167_initial_migration.py
+
+|  |  |  env.py
+
+|  |  |  README
+
+|  |  |  script.py.mako
 
 |  |  static
 
@@ -441,17 +461,19 @@ Diplom
 
 |  |  templates 
 
-|  |  |  base.html 
+|  |  |  basket.html 
 
-|  |  |  cart.html 
+|  |  | books.html 
 
-|  |  |  home.html
+|  |  |  login.html
 
-|  |  |  login.html 
+|  |  |  main.html 
 
-|  |  |  register.html 
+|  |  |  menu.html 
 
-|  |  |  shop.html 
+|  |  |  sign_in.html 
+
+|  |  alembic.ini
 
 |  |  database.py
 
@@ -470,19 +492,39 @@ Diplom
 
 |  |  |  db.sqlite3
 
+|  |  migrations
+
+|  |  |  versions
+
+|  |  |  |  8767aa5ddbea_update_books.py
+
+|  |  |  alembic.ini
+
+|  |  |  env.py
+
+|  |  |  README
+
+|  |  |  script.py.mako
+
+|  |  static
+
+|  |  |  css
+
+|  |  |  |  style
+
 |  |  templates 
 
-|  |  |  base.html 
+|  |  |  basket.html 
 
-|  |  |  cart.html 
+|  |  |  books.html 
 
-|  |  |  home.html
+|  |  |  login.html
 
-|  |  |  login.html 
+|  |  |  main.html 
 
-|  |  |  register.html 
+|  |  |  menu.html 
 
-|  |  |  shop.html 
+|  |  |  sign_in.html 
 
 |  |  app.py
 
@@ -493,23 +535,38 @@ Diplom
 ----
 # **Приложение 2. Список необходимых библиотек**
 
+aiosqlite==0.20.0
+alembic==1.14.1
+annotated-types==0.7.0
+anyio==4.8.0
+asgiref==3.8.1
+blinker==1.9.0
+click==8.1.8
+colorama==0.4.6
+databases==0.9.0
+Django==5.1.5
+fastapi==0.115.6
 Flask==3.1.0
-
-Werkzeug==3.1.3
-
-Django==5.1.3
-
-uvicorn==0.32.1
-
-fastapi==0.115.5
-
+Flask-Login==0.6.3
+Flask-Migrate==4.1.0
+Flask-Script==2.0.6
+Flask-SQLAlchemy==3.1.1
+greenlet==3.1.1
+h11==0.14.0
+idna==3.10
+itsdangerous==2.2.0
+Jinja2==3.1.5
+Mako==1.3.8
+MarkupSafe==3.0.2
 passlib==1.7.4
-
+pydantic==2.10.5
+pydantic_core==2.27.2
+python-multipart==0.0.20
+sniffio==1.3.1
+SQLAlchemy==2.0.37
+sqlparse==0.5.3
 starlette==0.41.3
-
-SQLAlchemy==2.0.36
-
-pydantic==2.10.2
-
-databases==0.9.0!
-
+typing_extensions==4.12.2
+tzdata==2024.2
+uvicorn==0.34.0
+Werkzeug==3.1.3
