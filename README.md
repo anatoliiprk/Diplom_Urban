@@ -130,7 +130,7 @@ Flask — это легковесный веб-фреймворк для Python,
 
 ## **Пример работы на Django** 
 
-Перед началом разработки приложения на Django, его нужно установить. Делается это, с помощью консольной команды “pip install Django”. Далее, чтобы начать разработку проекта, в консоли нужно прописать “django-admin startproject {имя файла}” (рис. 1.1) и (рис. 1.2). 
+Перед началом разработки приложения на Django, его нужно установить. Делается это, с помощью консольной команды “pip install Django”. Далее, чтобы начать разработку проекта, в консоли нужно прописать “django-admin startproject <имя файла>” (рис. 1.1) и (рис. 1.2). 
 
 ![Django](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Django/1.JPG)
 
@@ -158,9 +158,16 @@ Flask — это легковесный веб-фреймворк для Python,
 
 (рис. 1.5) 
 
-Чтобы настроить отображение на сайте, необходимо использовать файл «views.py». В ней пишутся функции и классы, в которых настраивается логика взаимодействия с сервером.
+Чтобы настроить отображение на сайте, необходимо использовать файл «views.py». В ней пишутся функции и классы, в которых настраивается логика взаимодействия с сервером (рис. 1.6.1), (рис. 1.6.2), (рис. 1.6.3).
 
-Функция home. Эта функция отображает главную страницу сайта. Shop_view отвечает за отображение страницы магазина. Функция add_to_cart добавляет книгу в корзину пользователя. Функция cart_view отображает содержимое корзины пользователя. Функция register обрабатывает регистрацию нового пользователя. Функция login_view обрабатывает вход пользователя (рис. 1.6.1), (рис. 1.6.2). 
+main - отображает главную страницу сайта
+catalog - отображает страницу магазина
+add_to_basket - добавляет книгу в корзину пользователя
+delete_from_basket - удаляет книгу из корзины пользователя
+basket_page - отображает содержимое корзины пользователя
+sign_in - обрабатывает регистрацию нового пользователя
+login_page - обрабатывает вход пользователя
+logout_page - обрабатывает выход пользователя
 
 ![Django](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Django/6.1.JPG)
 
@@ -174,7 +181,7 @@ Flask — это легковесный веб-фреймворк для Python,
 
 (рис. 1.6.3)
 
-Для создания моделей необходимо пользоваться файлом «models.py», в котором будут создаваться таблицы (в моём случае «Book» и «Cart») (рис. 1.7).
+Для создания моделей необходимо пользоваться файлом «models.py», в котором будут создаваться таблицы (рис. 1.7).
 
 ![Django](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Django/7.JPG)
 
@@ -200,7 +207,7 @@ Flask — это легковесный веб-фреймворк для Python,
 
 (рис. 1.10)
 
-Переходим по ссылке http://127.0.0.1:8000 на главную страницу нашего сайта и чтобы добавить на сайт нужные книги, мы добавляем к нашему адресу http://127.0.0.1:8000/admin/ и в разделе Shop/Books нажимаем кнопку "add" и записываем нужные нам параметры (рис. 1.11.1), (рис. 1.11.2). 
+Переходим по ссылке http://127.0.0.1:8000 на главную страницу нашего сайта и чтобы добавить на сайт нужные книги, мы добавляем к нашему адресу http://127.0.0.1:8000/admin/ и в разделе bookstore/book нажимаем кнопку "добавить" и записываем нужные нам параметры (рис. 1.11.1), (рис. 1.11.2). 
 
 ![Django](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/2.JPG)
 
@@ -218,31 +225,31 @@ Flask — это легковесный веб-фреймворк для Python,
 
 (рис. 2.1) 
 
-Потом мы создаем необходимые для работы файлы, такие как templates для взаимодействия с отображениями страниц, database для работы с базой данных проекта, main для запуска проекта, models для описания структуры базы данных, schemas для проверки данных и работы с ними (рис. 2.2) 
+Потом мы создаем необходимые для работы папки и файлы, такие как templates для взаимодействия с отображениями страниц, database.py для работы с базой данных проекта, main.py для запуска проекта, models.py для описания структуры базы данных, schemas.py для проверки данных и работы с ними (рис. 2.2) 
 
 ![FastAPI](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/FastAPI/2.JPG)
 
 (рис. 2.2)
 
-В папке database пишем код для использования библиотек "Databases" и "SQLAlchemy"(рис. 2.3) 
+В файле database.py пишем код для использования библиотек "Databases" и "SQLAlchemy"(рис. 2.3) 
 
 ![FastAPI](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/FastAPI/3.JPG)
 
 (рис. 2.3) 
 
-После этого в файле models cоздаем описания структуры базы данных для работы с ними (так называемая декларация схемы) (рис. 2.4). 
+После этого в файле models.py cоздаем описания структуры базы данных для работы с ними (так называемая декларация схемы) (рис. 2.4). 
 
 ![FastAPI](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/FastAPI/4.JPG)
 
 (рис. 2.4)
 
-В файле schemas с помощью библиотеки "Pydantic" создаем модели данных, которые проверяют входные данные на соответсвие заданным типам и структуре (рис. 2.5).
+В файле schemas.py с помощью библиотеки "Pydantic" создаем модели данных, которые проверяют входные данные на соответсвие заданным типам и структуре (рис. 2.5).
 
 ![FastAPI](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/FastAPI/5.JPG)
  
 (рис. 2.5)
 
-В файле main прописываем шаблоны для настройки проекта и отображения их на сайте (рис. 2.6).
+В файле main.py прописываем шаблоны для настройки проекта и отображения их на сайте (рис. 2.6).
 
 ![FastAPI](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/FastAPI/6.JPG)
 
@@ -268,65 +275,77 @@ Flask — это легковесный веб-фреймворк для Python,
 
 
 
-Далее для реализации проекта необходимо установить файлы, app для запуска проекта, init_db для инициализации базы данных, models для создания моделей и templates для взаимодействия с отображениями страниц.(рис. 3.2)
+Далее для реализации проекта необходимо создать файлы (рис. 3.2):
+app.py - для запуска проекта
+init_db.py - для инициализации базы данных
+models.py - для создания моделей
+templates.py - для взаимодействия с отображениями страниц
 
-![flask](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/Flast/Flask%202.jpg)
+![flask](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Flask/2.JPG)
 
 (рис. 3.2) 
 
-В основном файле app настраиваем приложение (рис 3.3) 
+В основном файле app.py настраиваем приложение (рис 3.3.1), (рис 3.3.2), (рис 3.3.3) 
 
-![flask](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/Flast/Flask%203.jpg)
+![flask](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Flask/3.1.JPG)
 
-(рис. 3.3)
+(рис. 3.3.1)
 
-Далее с помощью файла models представлена реализация базовой структуры базы данных для веб-приложения с использованием Flask, SQLAlchemy и Flask-Login. В данном коде создаются модели для работы с книгами, пользователями и корзиной покупок(рис. 3.4).
+![flask](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Flask/3.2.JPG)
 
-![flask](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/Flast/Flask%204.jpg)
+(рис. 3.3.2)
+
+![flask](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Flask/3.3.JPG)
+
+(рис. 3.3.3)
+
+Далее с помощью файла models.py представлена реализация базовой структуры базы данных для веб-приложения с использованием Flask, SQLAlchemy и Flask-Login. В данном коде создаются модели для работы с книгами, пользователями и корзиной покупок(рис. 3.4).
+
+![flask](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Flask/4.JPG)
 
 (рис. 3.4)
 
-После этого с помощью файла init_db инициализируем базу данных и добавляем начальные данные(рис. 3.5).
+После этого с помощью файла init_db.py инициализируем базу данных и добавляем начальные данные(рис. 3.5).
 
-![flask](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/Flast/Flask%205.jpg)
+![flask](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/Flask/5.JPG)
 
 (рис. 3.5)
 
 ## **Шаблоны HTML** 
 
-Шаблон base служит как базой для отображения всех страниц на сайте(рис. 4.1).
+Шаблон menu необходим для отображения панели навигации и явлется базовым для других шаблонов (рис. 4.1).
 
-![HTML](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/HTML/base.jpg)
+![HTML](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/1.JPG)
 
 (рис. 4.1)
 
-Второй шаблон Home.html выглядит вот так и служит как главной страницей на сайте (рис. 4.2).
+Второй шаблон main отображает главную страницу сайта (рис. 4.2).
 
-![HTML](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/HTML/Home.jpg)
+![HTML](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/2.JPG)
 
 (рис. 4.2)
 
-Третий шаблон Shop служит для продажи книг (рис. 4.3). 
+Третий шаблон books служит для отображения каталога книг и их покупки (рис. 4.3). 
 
-![HTML](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/HTML/Shop.jpg)
+![HTML](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/3.JPG)
 
 (рис. 4.3)
 
-Так же есть шаблон Cart.html он выглядит так (рис. 4.4)
+Так же есть шаблон basket, отвечающий за отображение страницы с корзиной пользователя (рис. 4.4)
 
-![HTML](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/HTML/Cart.jpg)
+![HTML](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/4.JPG)
 
 (рис.4.4) 
 
-В шаблоне Register любой пользователь может зарегестрироваться и купить книги (рис. 4.5).
+В шаблоне sign_in любой пользователь может зарегестрироваться, чтобы иметь возможность покупать книги (рис. 4.5).
 
-![HTML](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/HTML/Register.jpg)
+![HTML](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/5.JPG)
 
 (рис. 4.5)
 
-В шаблоне Login зарегестрированный пользователь может вернуться в свой аккаунт и продолжать покупки (рис. 4.6).
+В шаблоне login зарегестрированный пользователь может вернуться в свой аккаунт и продолжать покупки (рис. 4.6).
 
-![HTML](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/HTML/Login.jpg)
+![HTML](https://github.com/anatoliiprk/Diplom_Urban/blob/main/image/HTML/6.JPG)
 
 (рис. 4.6)
 
