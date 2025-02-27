@@ -262,7 +262,7 @@ Flask — это легковесный веб-фреймворк для Python,
 
 Для того чтобы начать работу на Flask нужно установить его с помощью консольной команды “pip install Flask, Flask_sqlalchemy Flask_login ”.(рис. 3.1) 
 
-![flask](https://github.com/7012017qazWSX/Diplom/blob/5f7e20f8804bdb36a1aedd1f78ff8e90625ddc2e/images/Flast/Flask%201.jpg)
+![flask](https://github.com/anatoliiprk/Diplom_Urban/tree/main/image/Flask)
 
 (рис. 3.1) 
 
